@@ -27,8 +27,16 @@ from drf_spectacular.views import (
 urlpatterns = [
     path('admin/',         admin.site.urls),
     path('api/auth/',      include('accounts.urls')),
+    path('api/patients/',  include('patients.urls')),
+    path('api/doctors/', include('doctors.urls')),
+    path('api/appointments/', include('appointments.urls')),
+    path('api/medical-records/', include('medical_records.urls')),
+    path('api/billing/', include('billing.urls')),
+    path('api/pharmacy/', include('pharmacy.urls')),
+    path('api/wards/', include('wards.urls')),
+    path('api/notifications/', include('notifications.urls')),
 
-    # Swagger docs
+
     path('api/schema/',    SpectacularAPIView.as_view(),      name='schema'),
     path('api/docs/',      SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
